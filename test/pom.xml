@@ -1,0 +1,105 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.ops4j.pax.wicket</groupId>
+    <artifactId>jsr330-test</artifactId>
+    <version>0.8.0-SNAPSHOT</version>
+
+    <packaging>bundle</packaging>
+
+    <properties>
+        <wicket.version>1.4.18</wicket.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.wicket</groupId>
+            <artifactId>wicket</artifactId>
+            <version>${wicket.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <inherited>true</inherited>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                    <optimize>true</optimize>
+                    <debug>true</debug>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                        <Private-Package>org.ops4j.pax.wicket.jsr330_test</Private-Package>
+                        <Import-Package>
+                            !org.ops4j.pax.wicket.jsr330_test,
+                            *,
+                            javax.servlet,
+                            javax.servlet.http,
+                            org.apache.wicket.protocol.http,
+                            org.apache.wicket.extensions.markup.html.repeater.data.grid,
+                            org.apache.wicket.markup.html.form,
+                            org.apache.wicket.markup.repeater.data,
+                            org.apache.wicket.markup.html.link,
+                            org.apache.wicket.behavior,
+                            org.apache.wicket.markup.html.pages,
+                            org.apache.wicket.authentication.panel,
+                            org.apache.wicket.markup.html.border,
+                            org.apache.wicket.markup.html.basic,
+                            org.apache.wicket.session,
+                            org.apache.wicket.util.file,
+                            org.apache.wicket.markup.html.image,
+                            org.apache.wicket.request,
+                            org.apache.wicket.model.util,
+                            org.apache.wicket,
+                            org.apache.wicket.authentication,
+                            org.apache.wicket.authorization.strategies.role,
+                            org.apache.wicket.settings,
+                            org.apache.wicket.authorization.strategies.role.annotations,
+                            org.apache.wicket.extensions.markup.html.repeater.data.table,
+                            org.apache.wicket.markup.html.list,
+                            org.apache.wicket.markup.repeater,
+                            org.apache.wicket.ajax,
+                            org.apache.wicket.markup.html,
+                            org.apache.wicket.markup.html.panel,
+                            org.apache.wicket.extensions.markup.html.repeater.util,
+                            org.apache.wicket.model,
+                            net.sf.cglib.proxy,
+                            net.sf.cglib.core,
+                            net.sf.cglib.reflect
+                        </Import-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

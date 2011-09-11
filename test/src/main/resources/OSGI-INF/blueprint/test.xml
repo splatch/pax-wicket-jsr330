@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:wicket="http://www.ops4j.org/schema/wicket">
+
+    <wicket:application id="test"
+        class="org.ops4j.pax.wicket.jsr330_test.WicketApplication"
+        applicationName="test" mountPoint="test" />
+
+    <service interface="org.ops4j.pax.wicket.jsr330_test.Service">
+        <bean class="org.ops4j.pax.wicket.jsr330_test.ServiceImpl" />
+    </service>
+
+
+</blueprint>

@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>pax-wicket</artifactId>
+        <groupId>org.ops4j.pax.wicket</groupId>
+        <version>0.8.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>org.ops4j.pax.wicket</groupId>
+    <artifactId>jsr330-injector</artifactId>
+    <packaging>bundle</packaging>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.ops4j.pax.wicket</groupId>
+            <artifactId>org.ops4j.pax.wicket.service</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>4.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.compendium</artifactId>
+            <version>4.2.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                        <Private-Package>
+                            org.ops4j.pax.wicket.jsr330.internal,
+                            org.ops4j.pax.wicket.jsr330.extender,
+                            org.ops4j.pax.wicket.jsr330.provider
+                        </Private-Package>
+                        <Bundle-Activator>org.ops4j.pax.wicket.jsr330.internal.Activator</Bundle-Activator>
+                        <Import-Package>
+                            !org.ops4j.pax.wicket.jsr330*,
+                            *
+                        </Import-Package>
+                        <Export-Package>
+                            org.ops4j.pax.wicket.jsr330;version="${project.version}"
+                        </Export-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
