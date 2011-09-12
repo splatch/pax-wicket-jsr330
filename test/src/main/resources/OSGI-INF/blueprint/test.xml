@@ -5,9 +5,7 @@
         class="org.ops4j.pax.wicket.jsr330_test.WicketApplication"
         applicationName="test" mountPoint="test" />
 
-    <service interface="org.ops4j.pax.wicket.jsr330_test.Service">
-        <bean class="org.ops4j.pax.wicket.jsr330_test.ServiceImpl" />
-    </service>
+    <bean id="service" class="org.ops4j.pax.wicket.jsr330_test.ServiceImpl" />
 
 
 </blueprint>
