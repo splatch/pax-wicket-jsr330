@@ -37,6 +37,18 @@
             <artifactId>javax.inject</artifactId>
             <version>1</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>3.0.6.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -51,6 +63,7 @@
                         <Private-Package>
                             org.ops4j.pax.wicket.jsr330.internal,
                             org.ops4j.pax.wicket.jsr330.extender,
+                            org.ops4j.pax.wicket.jsr330.servlet,
                             org.ops4j.pax.wicket.jsr330.provider
                         </Private-Package>
                         <Bundle-Activator>org.ops4j.pax.wicket.jsr330.internal.Activator</Bundle-Activator>
