@@ -29,6 +29,7 @@ public class SpringInjectionProvider implements InjectionProvider {
             if (beans.size() > 1) {
                 logger.warn("Multiple beans of type {} has been found. Injection was skipped", beanType);
             } else if (beans.size() == 1) {
+                logger.debug("An instance of bean {} has been found in spring context", beans);
                 return beans.values().iterator().next();
             }
         }

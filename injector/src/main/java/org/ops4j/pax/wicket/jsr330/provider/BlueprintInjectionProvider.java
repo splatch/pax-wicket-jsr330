@@ -45,11 +45,11 @@ public class BlueprintInjectionProvider implements InjectionProvider {
         Object instance = container.getComponentInstance(name);
 
         if (instance != null) {
-            if (beanType.getClass().isAssignableFrom(instance.getClass())) {
+            if (beanType.isAssignableFrom(instance.getClass())) {
+                logger.debug("An instance of bean named {} with type {} has been found in blueprint container",
+                    name, instance.getClass());
                 return (T) instance;
             }
-            logger.warn("An instance of bean named {} has been found in blueprint container but type {} did not match",
-                name, instance.getClass());
         }
         return null;
     }
